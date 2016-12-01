@@ -2,3 +2,12 @@
 magnetic_inductance
 U = R \cdot i + \frac{d\psi}{dt}
 
+transformMatrixGeneric
+\begin{bmatrix}
+ cos(\varphi )&  cos(2\varphi )&\cdots & cos((n-1)\varphi )\\ 
+ sin(\varphi )&  sin(2\varphi )&\cdots & sin((n-1)\varphi )\\ 
+ 1/n&  1/n&\cdots  & 1/n\\ 
+\end{bmatrix}
+
+phi
+\varphi = 2\pi/n
