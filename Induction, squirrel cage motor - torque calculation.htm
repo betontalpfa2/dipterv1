@@ -1,0 +1,501 @@
+<html><head>
+<title>Induction, squirrel cage motor - torque calculation</title>
+<meta name="description" content="Learn how induction motor works on a simplified example. Explains the torque curve shape.">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script type="text/javascript" async="" src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/ga.js"></script><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17330175-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></head>
+
+
+<body bgcolor="#C0C0FF">
+<a href="http://charming.awardspace.com/index.html"><b>Home</b></a>
+<hr>
+<table width="800">
+<tbody><tr>
+<td width="50"></td>
+<td>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3096499727893357";
+/* 728x90, created 2/3/10 */
+google_ad_slot = "5102130697";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/show_ads.js">
+</script>
+
+<br>
+<h2>Induction motor</h2>
+<p>
+When I was a child, I got very disappointed when I first opened a squirrel cage <a href="http://en.wikipedia.org/wiki/Induction_motor">induction motor</a>.
+ There was nothing inside. Only some wires that do not move and a heavy 
+iron cylinder fixed on an axle. The most interesting parts were bearings
+ and a cooling fan but they didn’t explain how an induction motor work.
+</p><p>
+To me, the induction motor remained a mystery for a long time. However, slowly, it revealed some of its secrets.
+</p><p>
+Now I must say that an induction, squirrel cage electric motor is 
+absolutely an ingenious device. It is rugged, long lasting, quiet, clean
+ and most of all, it is cheap. Most of its good properties come from its
+ apparent “nothing inside” simplicity. 
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor1.JPG">
+<small>
+<br>
+A side cross-section and a frontal cross-section of a squirrel cage induction motor. <a href="http://en.wikipedia.org/wiki/Stator">Stator</a> parts are in grayish colors, <a href="http://en.wikipedia.org/wiki/Rotor">rotor</a> parts are in bluish colors and electrical windings (coils) are in reddish colors.
+</small>
+</center>
+<p>
+</p><h3>The stator</h3>
+<p>
+Outside is the enclosure designed to protect the motor from any damage 
+and dust and also to help in cooling. Often the enclosure has cooling 
+fins on its outer surface – as the motor rotates it drives a small 
+centrifugal fan mounted on its rear axle stub that blows air over 
+cooling fins to promote cooling effect.
+</p><p>
+Inside, most of the stator consists of thin high-silica-low-carbon steel
+ ring sheets that are tightly packed together (laminated stator). The 
+purpose of these steel sheets is to conduct magnetic field while the 
+motor is engaged. The reason why is it made form many thin steel sheets,
+ and not form a solid block of steel is the same as is for transformer 
+cores – to lower eddy current loses and to lower hysteresis loses.
+ </p><p>
+There are deep grooves on the stator’s laminated package on its inner 
+side. The wires that make stator windings (coils) are placed into these 
+grooves and are fixed there with some resin. A stator winding can have 
+many loops of wire – it depends on the voltage the motor is intended to 
+run on.
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor2.JPG">
+<small>
+<br>
+A detail of stator and rotor grooves filled with conductors.
+</small>
+</center>
+<p>
+</p><h3>The rotor</h3>
+<p>
+At the very center of the rotor there is a steel axle (shaft) that can 
+rotate on ball bearings. The rest of the rotor also consists mostly of 
+thin steel sheets – much like the stator. These steel sheets have 
+grooves on the outer side. The rotor windings (coils) are placed into 
+these grooves.
+</p><p>
+Rotor windings are quite different than stator windings. A rotor winding
+ only consist of a single wire loop. This wire must be quite thick to 
+allow for high amperages that are induced on it. In practice, rotor 
+windings are made as straight aluminum or copper rods that are all 
+short-circuited at both ends. Made this way, rotor’s winding assembly 
+looks similar to a squirrel cage (a rodent running cage).
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor3.JPG">
+<small>
+<br>
+The squirrel cage of an induction motor represents rotor’s windings. 
+Thick conductive rods are short-circuited by conductive rings on each 
+side.  
+</small>
+</center>
+<p>
+Usually, the squirrel cage is made by casting the molten aluminum 
+directly into the rotor grooves. This way, the whole cage is made from 
+one single piece of material and so there are no high-resistance 
+junction points on the current path.
+</p><p>
+Also usually, cage wires are intentionally skewed a bit to make rotor rotation smoother.
+</p><p>
+</p><h3>Rotating magnetic field</h3>
+<p>
+The foundation of a 3-phase squirrel cage induction motor is the 
+rotating magnetic field. The rotating field is generated by stator 
+windings.
+</p><p>
+All the stator windings can be divided into three main groups; each 
+group belongs to one phase – that is, each of these three winding groups
+ must have its electric current in offset by 120 degrees, and to obtain 
+this it is the easiest to connect the motor to the three-phase power 
+grid system.
+ </p><p>
+Stator windings must be arranged around the stator in a specific order 
+to create the rotating magnetic field effect. There should be even 
+number of windings per each phase (therefore there can be 6, 12, 18, 
+24…. windings) where every first of them should be winded clockwise, and
+ every second counter-clockwise (looking to the center of the motor). 
+</p><p>
+Let’s take, for example, the simplest case – a 3-phase motor with 6 
+stator windings (the, so-called, 2-pole motor). There are two windings 
+per phase, each of these two is winded in opposite direction.
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor4.JPG">
+<small>
+<br>
+The left picture shows how you arrange stator windings on a 2-pole 
+induction motor. Each color represents a winding pair that belongs to 
+one particular phase. On the right you see in detail how the red phase 
+windings are wound - note that windings that belong to the same phase 
+are actually made from one single piece of wire that is looped many 
+times in each of them.
+</small>
+</center>
+<p>
+What happens when you connect the motor to the three-phase power grid? 
+The current will start to flow through stator windings. But as this is 
+an AC current it changes in time. In addition, the current that flows 
+through each of three main groups of windings have the offset of 120 
+degrees. It means that in one moment the current will have its maximal 
+value in first group of windings, then after 1/3 cycle in the second, 
+and then in the third group. The overall magnetic field is a vector sum 
+of magnetic fields produced by all three sets of windings. As the result
+ we will have a rotating magnetic field.
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor5.JPG">
+<small>
+<br>
+The upper portion of this picture shows how currents change in each main
+ group of windings during the time (sinusoids at 120 degrees offset). 
+The bottom portion shows the magnetic field lines inside an induction 
+motor at given moments. Note that the magnetic field rotates once per AC
+ current period (50Hz in Europe, 60Hz in USA).
+</small>
+</center>
+<p>
+By the way, a motor with 6 stator windings is called a 2-pole motor 
+(because there is one pole where magnetic field enters, and one pole 
+where it exits the stator). If it has 12-winding it is called a 4-pole 
+motor, 18-winding is called a 6-pole motor and so on.
+</p><p>
+What if we want our motor to rotate more slowly? Easy, we only have to 
+make a 4-pole, or a 6-pole stator (or any 2N-pole). The picture below 
+shows how you arrange windings in a 6-pole motor.
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor6.JPG">
+<small>
+<br>
+The picture shows schematics of a 6-pole motor stator – arrangement of 
+windings and an example of magnetic field lines configuration. The 
+rotating field will turn three times slower than in a 2-pole motor.
+</small>
+</center>
+<p>
+In an induction motor the rotating magnetic field is performed, as you 
+can see, without any moving part. This was a brilliant idea – the usage 
+of the three-phase power grid system makes our electric motors very 
+simple and rugged.
+</p><p>
+</p><h3>A squirrel cage rotor inside a rotating magnetic field</h3>
+<p>
+What happens when you place a squirrel cage rotor inside a rotating 
+magnetic field? As you expected, it starts turning. (Note that you 
+should not even try to power an induction motor without having the rotor
+ in place – without the rotor the inductance of stator windings is very 
+low so a high current will burn stator windings immediately).
+</p><p>
+The rotating magnetic field induces a current inside a squirrel cage 
+(the rotor windings) and that, in turn, creates torque on rotor. The 
+torque will accelerate the rotor in the direction of the rotating 
+magnetic field. If there is no load applied to the motor shaft, the 
+rotation speed of the rotor will get very close to the rotation speed of
+ the magnetic field (called the synchronous speed) but will never reach 
+it – that is why this type of motor is also called asynchronous motor.
+</p><p>
+The torque that motor delivers depends on its rotating speed. This curve is very important and is shown on the picture below
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor7.JPG">
+</center>
+<p>
+You see four interesting points on the above diagram. The nominal torque
+ is the torque that can be given by the motor at full time. However, a 
+typical induction motor is capable to give much greater maximal torque 
+than its nominal but only for a short period of time (the motor soon 
+overheats if you keep it at higher-than-nominal torque). 
+</p><p>
+It can be seen that as you increase the load (torque) the speed of the 
+motor rotation slows down. However, after some maximal torque the motor 
+stops and will restart again only if the torque drops down below the 
+starting torque level.
+</p><p>
+By the way, most motors have their nominal torque lower than their starting torque so they can start at their full nominal load.
+</p><p>
+But what will happen if we try to force the rotor faster than the 
+synchronous speed. On the picture below you have the full version of the
+ torque-speed diagram.
+ </p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor8.JPG">
+</center>
+<p>
+When the motor rotation rate is lower than synchronous speed then the 
+motor is in motor regime, and when it is greater than the synchronous 
+speed then the motor is in generator regime. At both sides, the torque 
+curve asymptotically tends to zero as the rotation rate tends toward 
+infinity.
+</p><p>
+If we try to rotate the rotor faster than synchronous speed, the motor 
+will try to resist by providing counter-torque. This way it enters into 
+the generator regime – it starts producing electric power.
+</p><p>
+</p><h3>The math</h3>
+<p>
+Using a very simplified induction motor model we will try to explain why
+ the torque curve has its shape. Our approach will be more qualitative 
+than quantitative but at least it will use some straightforward math. 
+(You can find some very nice and short induction motor calculations on 
+the web but they all tend to use math that is beyond my knowledge level –
+ that is why I decided to calculate it myself).
+</p><p>
+Our induction motor model is shown on the picture. It basically consists
+ of one single closed loop of wire (that represents the motor cage) and 
+of rotating homogeneous magnetic field. I will imagine that the loop is 
+fixed and the field is rotating, but you can think the other way if it 
+is easier to you.
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor9.JPG">
+<small>
+<br>
+A very simple model of an induction motor – a homogenous magnetic field 
+is rotating around the stationary wire loop. A current is induced in the
+ loop and as a result the force is generated on to produce a torque.
+</small>
+</center>
+<p>
+Here, we don’t take in consideration how the rotating magnetic field is actually produced.
+</p><p>
+We want to calculate what is the torque excreted on the wire loop 
+depending on magnetic field rotation rate (omega). We expect to get 
+something similar to the torque/rotation-rate curve (only the origin 
+point will be translated to the synchronous speed and the x-axis will be
+ inverted because N=Ns-omega/[2*pi]).
+</p><p>
+We start with four simple equations. The equation [1] is the famous 
+Faraday’s law – the electromotive force generated in the loop is equal 
+to the change in magnetic flux. This electromotive force generates a 
+current I(t) depending on the loop resistance (Ohm’s law).
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor10.JPG">
+</center>
+<p>
+The equation [2] describes that the magnetic flux through the loop, in 
+our case, consist of two parts – the flux that comes from the rotating 
+magnetic field and the flux that is generated by the loop itself 
+(actually by the generated current in the loop). 
+</p><p>
+Equations [3] and [4] describe these two flux components. The flux 
+component of the rotating magnetic field has the sine wave function 
+shape, while the loop auto-induced flux is proportional to the current 
+in the loop.
+</p><p>
+Combining equations [4] and [3] into equation [2] and then substituting 
+the result into the equation [1] we get the following equation.
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor11.JPG">
+</center>
+<p>
+This is a simple differential equation that, I am sure, you know how to 
+handle. Good for you. Unfortunately, I am, not very good in solving 
+differential equations so I used the Laplace transform (I am more 
+familiar with). 
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor12.JPG">
+</center>
+<p>
+Equation [6] is the Laplace transform of the equation [5]. The current, 
+I(s) can then be expressed as in equation [7] or in turn, can be as in 
+[8]. Where A, B and C are some factors that we have to calculate yet.
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor13.JPG">
+</center>
+<p>
+After we calculated A, B and C we substituted them into [8] and got the 
+equation [10]. This one we can easily transform back to time-domain – 
+finally, the equation [11] is the solution of the differential equation 
+[5].
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor14.JPG">
+</center>
+<p>
+However, we only want to consider a stationary result, therefore we are 
+rejecting the red-outlined part of the equation [11] (as you can see, 
+after some time this part of equation will drop down to a very small 
+value and we can simply reject it).
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor15.JPG">
+</center>
+<p>
+Now we have the equation [12] that is very simple and tells us what is 
+the current in the loop. However, I am not very satisfied with the 
+equation [12] because I was hoping to get the result in form of I(t)=I<small>o</small> sin (omega*t + phi). I will convert the equation [12] using the following general equations:
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor16.JPG">
+</center>
+<p>
+And finally I get the equation [13] from where I can directly read the 
+amplitude of the current and the phase of the current in the loop.
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor17.JPG">
+</center>
+<p>
+Let’s take a closer look at the equation [13]. Both, its phase and its 
+amplitude depend on the omega (rotation speed of the magnetic field). 
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor18.JPG">
+</center>
+<p>
+We will now use the equation [13] to calculate the torque on the loop. 
+We need two more simple equations. The equation [14] gives the general 
+force on the straight wire (of lambda length) placed the magnetic field 
+B(t). The equation [14] describes our particular case magnetic field and
+ it deserves a bit of explanation. 
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor19.JPG">
+</center>
+<p>
+The equation [14] is closely related to the equation [3]. First, the 
+magnetic flux in the equation [3] can be simply calculated, for a 
+homogenous magnetic field, by multiplying the surface are of the loop 
+(2r x lambda) and the strength of the field (B<small>o</small>). Second,
+ the equation [3] incorporates the sine function because only sine 
+component of the rotating magnetic field generates the magnetic flux 
+that is perpendicular to the surface area of the loop, while the 
+equation [14] incorporates the cosine function because only this 
+component generates the torque on the loop.
+</p><p>
+By combining equations [13], [14] and [15] we get the equation [16]. It 
+doesn’t look very nice to me so I will transform it to the equation [17]
+ (by using: sinA cosB = [sin(A+B)+sin(A-B)]/2 ).
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor19b.JPG">
+</center>
+<p>
+Again I will reject the red-outlined part of the equation [17] because 
+this one gives no contribution to the average torque (its integral 
+during the rotation cycle is zero).
+</p><p>
+Finally we are calculating the torque by multiplying the force and the 
+distance from the axis of rotation (r). We are also multiplying the 
+result by two because there are two straight wire sections in our loop 
+that contribute to the torque. 
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor20.JPG">
+</center>
+<p>
+The result is the equation [20] that tells us what is the torque on the 
+loop. If we draw this function we get something like the picture below.
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor21.JPG">
+</center>
+<p>
+This is exactly what I was hoping for – the torque/speed curve of an 
+induction motor (only we have to invert the x-axis and translate the 
+origin point).
+</p><p>
+Okay, what can we do to make our motor have more torque? We could 
+enlarge its dimensions (r and/or lambda), of course. We cannot enlarge 
+the magnetic field strength much because the iron allows only around 1T.
+ Also we are limited in decreasing the ‘L’ because we can only decrease 
+it further if we use smaller amount of iron in our motor – and this 
+would decrease the magnetic field strength even more dramatically than 
+the ‘L’ generating the opposite effect.
+</p><p>
+The interesting stuff is that the maximal torque doesn’t depend on the 
+resistance of the loop. Odd. However the resistance greatly changes the 
+shape of the torque curve and this fact is sometimes used to regulate 
+the speed of an induction motor (wound rotor motor type) by changing the
+ resistance of the rotor windings. Anyway, when the resistance of the 
+cage conductor is higher then the motor will hold its rotating speed 
+more loosely as the load changes.
+</p><p>
+</p><h3>The single-phase induction motor</h3>
+<p>
+Okay, we know that a three-phase power grid system can create a rotating
+ magnetic field that we can efficiently employ in a three-phase 
+induction motor. But most of induction motors are actually <a href="http://en.wikipedia.org/wiki/Induction_motor#Single-phase_AC_induction_motors">single-phase</a> type. How do they make a rotating magnetic field?
+</p><p>
+Well, the answer is that they don’t. They only create a pulsating 
+magnetic field, but it shows up that this is good enough! Cool.
+</p><p>
+Even more cool is the way it can be proven. This proof you can never forget – it is so amazing.
+</p><p>
+A pulsating magnetic field can be expressed as a superposition of two 
+rotating magnetic fields that are rotating in the opposite direction. 
+Each of these two rotating fields would generate its own torque on the 
+rotor – we can simply sum up these torques. We can conclude that the 
+torque curve of a single-phase motor would be equal to the summation of 
+two standard, opposite direction 3-phase motor torque curves.
+</p><p>
+</p><center>
+<img src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/induction_motor22.JPG">
+<small>
+<br>
+Torque curves of two opposite direction 3-phase induction motors are 
+summed up – the result (the red curve) is the torque curve of a 
+single-phase induction motor
+</small>
+</center>
+<p>
+We can see that the starting torque of a single-phase induction motor 
+would be zero, but once it gain some speed (in any direction) it will 
+produce torque on their own – very similar to the 3-phase motor.
+</p><p>
+In the real word, a single-phase induction motor always have additional,
+ second phase winding set that is used to produce starting torque so the
+ motor can start on its own. The second phase is usually generated by a 
+quite large capacitor – the capacitor offsets the phase to about 90? and
+ delivers it to the second winding set. Once the motor starts, the 
+second winding set has no much effect on the motor torque.
+</p><p>
+<small>Danijel Gorupec, 2006</small>
+</p><p>
+<script type="text/javascript"><!--
+google_ad_client = "pub-3096499727893357";
+/* 160x90, created 5/25/10 */
+google_ad_slot = "1240889603";
+google_ad_width = 160;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="Induction,%20squirrel%20cage%20motor%20-%20torque%20calculation_files/show_ads.js">
+</script>
+</p><p>
+
+
+</p></td>
+</tr>
+</tbody></table>
+<hr>
+<a href="http://charming.awardspace.com/index.html"><b>Home</b></a>
+
+</body></html>

@@ -1,0 +1,4 @@
+
+magnetic_inductance
+U = R \cdot i + \frac{d\psi}{dt}
+
