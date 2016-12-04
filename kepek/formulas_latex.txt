@@ -11,3 +11,162 @@ transformMatrixGeneric
 
 phi
 \varphi = 2\pi/n
+
+transform3Phase
+\begin{bmatrix}
+ 1 & -\frac{1}{2}&  -\frac{1}{2}\\ 
+ 0 & \frac{\sqrt{3}}{2}& -\frac{\sqrt{3}}{2}\\ 
+ 1&  1& 1\\ 
+\end{bmatrix}
+
+transform3Phase2
+M_{3ph\_to\_dq} =\begin{bmatrix}
+ 1 & -\frac{1}{2}&  -\frac{1}{2}\\ 
+ 0 & \frac{\sqrt{3}}{2}& -\frac{\sqrt{3}}{2}\\ 
+ 1&  1& 1\\ 
+\end{bmatrix}
+
+coil_to_dq
+\vec{U}_{dq} =\begin{bmatrix}
+ 1 & -\frac{1}{2}&  -\frac{1}{2}\\ 
+ 0 & \frac{\sqrt{3}}{2}& -\frac{\sqrt{3}}{2}\\ 
+ 1&  1& 1\\ 
+\end{bmatrix} \cdot \begin{bmatrix}
+U_{coil\_1} \\
+U_{coil\_2} \\
+U_{coil\_3} \\
+\end{bmatrix}
+
+
+magnetic_inductance_in_dq
+\vec{U}_{s} = R_s \cdot \vec{i}_s + \frac{d\vec{\psi}_s}{dt}
+
+magnetic_inductance_in_dq_rotor
+\vec{U}_{r} = R_r \cdot \vec{i}_r + \frac{d\vec{\psi}_r}{dt}
+
+
+magnetic_inductance_in_dq_rot_stat
+\\ 
+\vec{U}_{s} = R_s \cdot \vec{i}_s + \frac{d\vec{\psi}_s}{dt}\\\\
+\vec{U}_{r} = R_r \cdot \vec{i}_r + \frac{d\vec{\psi}_r}{dt}
+
+coupled_fluxes
+\tiny\\
+\vec{\psi}_s = \vec{i}_s \cdot L_s + \vec{i}_r \cdot e^{jx} \cdot L_m\\\\
+\vec{\psi}_r = \vec{i}_r \cdot L_r + \vec{i}_s \cdot e^{-jx} \cdot L_m
+
+equation_in_common_coord
+\tiny\\
+\vec{U}_{s} = R_s \cdot \vec{i}_s + \frac{d\vec{\psi}_s}{dt} + j\omega_k \vec{\psi}_s\\\\
+\vec{U}_{r} = R_r \cdot \vec{i}_r + \frac{d\vec{\psi}_r}{dt} + j(\omega_k - \omega_r) \vec{\psi}_r\\\\
+\vec{\psi}_s = \vec{i}_s \cdot L_s + \vec{i}_r \cdot L_m\\\\
+\vec{\psi}_r = \vec{i}_r \cdot L_r + \vec{i}_s \cdot L_m
+
+force_of_current
+F =  l \cdot B \times i
+
+torque_of_coils
+\\
+\vec{M} = L_m \cdot \vec{i_1} \times \vec{i2}\\
+\vec{M} = \vec{i_1} \times \vec{\psi}_m
+
+torque_of_motor
+M = p \cdot ({\psi}_{sd} {i}_{sq} - {\psi}_{sq}{i}_{sd})
+
+motor_din_eq
+M = M_t + B\omega_r + J\frac{d\omega_r}{dt}
+
+x
+\vec{x} = \begin{bmatrix}
+\psi_{rd} \\
+\psi_{rq} \\
+i_{sd}    \\
+i_{rq}
+\end{bmatrix}  
+
+A
+A =  \begin{bmatrix}
+-\frac{R_r}{L_r}   & \omega_k-omega_r & \frac{L_mR_r}{L_r} & 0\\
+-\omega_k-\omega_r  & -\frac{R_r}{L_r} &  0                 & \frac{L_mR_r}{L_r} \\
+\frac{L_mR_r}{L_r^2\sigma L_s} &  \frac{\omega_rL_m}{L_r\sigma L_s}  & \frac{R''}{\sigma L_s}  & \omega_k\\
+-\frac{\omega_rL_m}{L_r\sigma L_s} & \frac{L_mR_r}{L_r^2\sigma L_s} & -\omega_k &  \frac{R''}{\sigma L_s}
+\end{bmatrix}\\\
+
+U
+\vec{u} = \begin{bmatrix}
+u_{sd} \\
+u_{sq} \\
+\end{bmatrix} 
+
+##############################################################
+
+\vec{x} = \begin{bmatrix}
+i_{sd}    \\
+i_{rq}    \\
+\psi_{rd} \\
+\psi_{rq} \\
+\end{bmatrix}  ,
+
+
+\vec{u} = \begin{bmatrix}
+u_{sd} \\
+u_{sq} \\
+\end{bmatrix}  , \frac{d\vec{x}}{dt} = A \cdot \vec{x} + B \cdot \vec{u}
+\\\ 
+
+A =  \begin{bmatrix}
+\frac{L_mR_r}{L_r} & 0 & -\frac{R_r}{L_r}   & (\omega_k-\omega_r) \\
+0                 & \frac{L_mR_r}{L_r}  & (-\omega_k-\omega_r)  & -\frac{R_r}{L_r} \\
+\frac{R''}{\sigma L_s}  & \omega_k & \frac{L_mR_r}{L_r^2\sigma L_s} &  \frac{\omega_rL_m}{L_r\sigma L_s}  \\
+-\omega_k &  \frac{R''}{\sigma L_s} & -\frac{\omega_rL_m}{L_r\sigma L_s} & \frac{L_mR_r}{L_r^2\sigma L_s}
+\end{bmatrix},
+
+B = \begin{bmatrix}
+\frac{1}{\sigma L_s} & 0 \\ 
+0 & \frac{1}{\sigma L_s} \\
+0 & 0 \\ 
+0 & 0 \\ 
+\end{bmatrix}
+###############################################################################
+
+state_vars_and_inputs
+\vec{x} = \begin{bmatrix}
+i_{sd}    \\
+i_{rq}    \\
+\psi_{rd} \\
+\psi_{rq} \\
+\end{bmatrix}  ,
+\vec{u} = \begin{bmatrix}
+u_{sd} \\
+u_{sq} \\
+\end{bmatrix}
+
+systemMatrices
+A =  \begin{bmatrix}
+\frac{L_mR_r}{L_r} & 0 & -\frac{R_r}{L_r}   & (\omega_k-\omega_r) \\
+0                 & \frac{L_mR_r}{L_r}  & (-\omega_k-\omega_r)  & -\frac{R_r}{L_r} \\
+\frac{R''}{\sigma L_s}  & \omega_k & \frac{L_mR_r}{L_r^2\sigma L_s} &  \frac{\omega_rL_m}{L_r\sigma L_s}  \\
+-\omega_k &  \frac{R''}{\sigma L_s} & -\frac{\omega_rL_m}{L_r\sigma L_s} & \frac{L_mR_r}{L_r^2\sigma L_s}
+\end{bmatrix},
+B = \begin{bmatrix}
+\frac{1}{\sigma L_s} & 0 \\ 
+0 & \frac{1}{\sigma L_s} \\
+0 & 0 \\ 
+0 & 0 \\ 
+\end{bmatrix}
+
+systemEq
+\frac{d\vec{x}}{dt} = A \cdot \vec{x} + B \cdot \vec{u}
+
+R2
+R'' = \frac{L_m^2}{L_r^2}R_r+R_s
+
+sigma
+\sigma = 1-\frac{L_m^2}{L_sL_r}
+
+R_and_sigma
+\\
+R'' = \frac{L_m^2}{L_r^2}R_r+R_s \\
+\sigma = 1-\frac{L_m^2}{L_sL_r}
+
+
