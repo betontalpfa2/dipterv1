@@ -1,7 +1,7 @@
 disp 'a'
 th = 0;
 
-M_abc2ab0  = 2/3*[1, -0.5, -0.5; 0, sqrt(3)/2, -sqrt(3)/2;  0.5, 0.5, 0.5];
+M_abc2ab0  = [1, -0.5, -0.5; 0, sqrt(3)/2, -sqrt(3)/2;  0.5, 0.5, 0.5];
 M_ab02dq0  = [cos(th), sin(th), 0;  -sin(th), cos(th), 0;  0, 0, 1];
 M_phase_dq = M_ab02dq0*M_abc2ab0;
 M_ab02abc  = inv(M_abc2ab0);
@@ -80,10 +80,11 @@ if motor_type == 4
     % Nominal
     voltage = 380; % V
     freq = 50; % Hz
-    power = 3.8; % hp
+    power = 2.8; %kW (3.8 hp)
     Inom = 8;    %A
     % torqueNom = 1.7; % N
-    speed = 1450; % rpm
+    speedRPM = 1450; % rpm
+    speedRAD = speedRPM/30*pi; % rpm
     flux = 0.735; % wb
     
 end

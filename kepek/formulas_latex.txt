@@ -169,4 +169,75 @@ R_and_sigma
 R'' = \frac{L_m^2}{L_r^2}R_r+R_s \\
 \sigma = 1-\frac{L_m^2}{L_sL_r}
 
+simultaionSystemEq
+\vec{x}(t) = \int_{0}^{t} (A \cdot \vec{x}(\tau) + B \cdot \vec{u}(\tau)) d\tau
 
+eq_in_normal_op
+\tiny\\
+\vec{U}_{s} = R_s \cdot \vec{i}_s + j\omega_1 \vec{\psi}_s\\\\
+\vec{U}_{r} = R_r \cdot \vec{i}_r + j(\omega_s) \vec{\psi}_r=0\\\\
+\vec{\psi}_s = \vec{i}_s \cdot L_s + \vec{i}_r \cdot L_m\\\\
+\vec{\psi}_r = \vec{i}_r \cdot L_r + \vec{i}_s \cdot L_m
+
+magnet_current
+\tiny\\
+\vec{i}_m = \vec{i}_r + \vec{i}_s, \ \ \ \vec{\psi}_m = \vec{i}_m L_m \\\\
+L_{ls} = L_s-L_m, \ \ \ L_{lr}  = L_r-L_m\\\\
+\vec{\psi}_s = \vec{\psi}_m  + \vec{i}_s  L_{ls} \\\\
+\vec{\psi}_r = \vec{\psi}_m  + \vec{i}_r  L_{lr} \\\\
+
+
+???
+\tiny\\
+\vec{U}_{s0} = R_s \cdot \vec{i}_s + j\omega_1 \vec{\psi}_s\\\\
+\vec{U}_{r} = R_r \cdot \vec{i}_r + j\omega_s \vec{\psi}_r=0\\\\
+\vec{\psi}_s = \vec{i}_s \cdot L_s + \vec{i}_r \cdot L_m\\\\
+\vec{\psi}_r = \vec{i}_r \cdot L_r + \vec{i}_s \cdot L_m
+\\\\
+\\\\
+
+
+
+eliminated rotor inductance
+###############################################################################
+\tiny\\
+\vec{\psi}_s  = \vec{i}_s \cdot L^{*}_{ls} + \vec{i}^{*}_m \cdot L^{*}_m\\
+\vec{\psi}^{*}_r = \vec{i}^{*}_m \cdot L^{*}_m\\\\
+
+\vec{i}^{*}_m = \vec{i}_s + \vec{i}^{*}_r\\
+\vec{\psi}^{*}_r = a \cdot \vec{\psi}_r\\
+\vec{i}^{*}_r    = a \cdot \vec{i}_r\\
+a = \frac{L_m}{L_r}\\\\
+
+L^{*}_{ls} = \sigma L_s\\
+L^{*}_m = (1-\sigma) L_s\\
+\sigma = 1-\frac{L_m^2}{L_rLs}
+###############################################################################
+
+eliminated_rot_ind_flux
+\tiny\\
+\vec{\psi}_s  = \vec{i}_s \cdot L^{*}_{ls} + \vec{i}^{*}_m \cdot L^{*}_m\\
+\vec{\psi}^{*}_r = \vec{i}^{*}_m \cdot L^{*}_m
+
+eliminated_rot_ind_flux_and_i
+\tiny\\
+\vec{i}^{*}_m = \vec{i}_s + \vec{i}^{*}_r\\
+\vec{\psi}^{*}_r = a \cdot \vec{\psi}_r\\
+\vec{i}^{*}_r    = a \cdot \vec{i}_r\\
+
+eliminated_rot_ind_a
+\tiny\\
+a = \frac{L_m}{L_r}
+
+eliminated_rot_ind_induct
+\tiny\\
+L^{*}_{ls} = \sigma L_s\\
+L^{*}_m = (1-\sigma) L_s\\
+\sigma = 1-\frac{L_m^2}{L_rLs}
+
+eq_in_normal_op2
+\tiny\\
+\vec{U}_{s} = R_s \cdot \vec{i}_s + j\omega_1 \vec{\psi}_s\\
+\vec{U}_{r} = R_r \cdot \vec{i}_r + j\omega_s \vec{\psi}_r=0\\\\
+\vec{\psi}_s  = \vec{i}_s \cdot L^{*}_{ls} + \vec{i}^{*}_m \cdot L^{*}_m\\
+\vec{\psi}^{*}_r = \vec{i}^{*}_m \cdot L^{*}_m\\\\
