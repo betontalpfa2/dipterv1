@@ -70,8 +70,8 @@ if motor_type == 4
     Rr = 1.009; %ohm
     Lm = 0.1271; %H
 
-    Ls = 0.1473+Lm; %H
-    Lr = 0.1473+Lm; %H
+    Ls = 0.1473; %H
+    Lr = 0.1473; %H
     %Inertia = 0.06; % kgm2
     %damp = 0.089;  % Ns/m
     %Lr = Ls; %H ???

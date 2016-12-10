@@ -33,8 +33,8 @@ B = [1/Ls/sig, 0;
 %om_supply = 33.6;
 %om_rotor = 30;
 
-om_supply = 110.6;
-om_rotor = 100;
+om_supply = 100;
+om_rotor = 99.9;
 om_coord = om_supply;
 
 u = [200;0];
@@ -82,7 +82,7 @@ if compute_supp_ref
     [psy_theta, psy_amp] = cart2pol(psy_vec(1), psy_vec(2))
     [i_theta, i_amp] = cart2pol(i_vec(1), i_vec(2))
     m = m(2)-m(1)
-    m = m*3/2*Lm/Lr
+    m = m*Lm/Lr
     i_stat = norm(i_vec)
     
 end
