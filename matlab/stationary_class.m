@@ -31,7 +31,7 @@ classdef stationary_class < motor_wrapper
             Rr = obj.Rr;
             Ls = obj.Ls;
             Lr = obj.Lr;
-            Lm = obj.Lm
+            Lm = obj.Lm;
             om_rotor = obj.omRot;
             om_coord = obj.omSupp;
             
@@ -59,8 +59,10 @@ classdef stationary_class < motor_wrapper
         end
     end
     
-    methods(Access = private)
+    methods(Access = protected)
         function obj = calculate(obj)
+            obj.generateMatrices();
+            
             x = obj.A\(-obj.B*obj.suppAmp);
             
             i_vec = x(1:2);
@@ -78,15 +80,4 @@ classdef stationary_class < motor_wrapper
         end
     end
     
-    
-    methods
-       function obj = run(obj)
-           if(obj.done)
-               return
-           end
-           obj.generateMatrices();
-           obj.calculate()
-       end
-       
-    end
 end

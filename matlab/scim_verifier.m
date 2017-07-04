@@ -19,31 +19,29 @@ classdef scim_verifier
         
         
         function obj = testDC(obj)
-            obj.motor.setOperation(0.1, 0.1, 100);
+            obj.print_name();
+            obj.motor.setOperation(0.01, 0.011, 100);
             obj.motor.run();
             is = obj.motor.getIs();
             
             obj.asrt_diff(angle(is), 0, 'Stator current has imaginary component...');
-%             if abs(angle(is))>0.1
-%                 disp(is)
-%                 error('Stator current has imaginary component...')
-%             end
             
             Rs = obj.motor.getRs();
             isa = abs(is);
             u = obj.motor.getSuppAmp();
+            obj.asrt_div(u/isa, Rs, 'DC resistance is not correct...')
 
             
-            obj.asrt_diff(u/isa, Rs, 'DC resistance is not correct...')
-%             abs(u/isa-Rs)
-%             if abs(u/isa-Rs)>0.1
-%                 disp(is)
-%                 error('DC resistance is not correct...')
-%             end
+            psir = obj.motor.getPsir();
+            Lm = obj.motor.getLm();
+            obj.asrt_div(psir, is*Lm, 'DC resistance is not correct...')
+
+            
         end
         
         
         function obj = testAC_sync(obj)
+            obj.print_name();
             obj.motor.setOperation(9999.9999, 10000, 100);
             obj.motor.run();
             is = obj.motor.getIs();
@@ -60,6 +58,7 @@ classdef scim_verifier
         
         
         function obj = testAC_async(obj)
+            obj.print_name();
             obj.motor.setOperation(10, 1000, 100);
             obj.motor.run();
             is = obj.motor.getIs();
@@ -79,10 +78,11 @@ classdef scim_verifier
         
         
         function obj = testPower(obj)
-            om1 = 150;
-            om2 = 145;
+            obj.print_name();
+            om1 = 314;
+            om2 = 300;
             
-            obj.motor.setOperation(om2, om1, 100);
+            obj.motor.setOperation(om2, om1, 325);
             obj.motor.run();
             
             s = (om1-om2)/om1;
@@ -95,18 +95,18 @@ classdef scim_verifier
             %obj.asrt_diff(angle(is), 0, 'Stator current has imaginary component...')
 
 
-            Ls = obj.motor.getLs();
-            Lm = obj.motor.getLm();
-            Lr = obj.motor.getLr();
-            m = obj.motor.getTorque();
+%             Ls = obj.motor.getLs();
+%             Lm = obj.motor.getLm();
+%             Lr = obj.motor.getLr();
+            m = obj.motor.getTorque()
             
             Rs = obj.motor.getRs();
             
-            pm = 145*m * ((1-s))
+            pm = om2*m
             pcopp = Rs * abs(is)^2
             
-            sig = 1-Lm*Lm/Ls/Lr;
-            Lx = Ls*sig;
+%             sig = 1-Lm*Lm/Ls/Lr;
+%             Lx = Ls*sig;
             
             obj.asrt_div(p, pm+pcopp, 'Powers are not correct...')
             
@@ -124,20 +124,28 @@ classdef scim_verifier
         end
         
         function asrt_div(val, exp, msg)
-             if abs(val/exp-1)>0.1
+             if abs(val/exp-1)>0.05
                 fprintf('Current val: %f  --  Excepted: %f\n', val, exp )
                 error(msg)
             end
         end
+        
+        function print_name()
+            [ST,I] = dbstack;
+            fprintf('Running test: %s\n', ST(2).name)
+            %ST.name(1)
+        end
+        
     end
     
     
     
     methods
         function runAllTest(obj)
-            obj.testDC
-            obj.testAC_async
-            obj.testAC_sync
+            obj.testDC;
+            obj.testAC_async;
+            obj.testAC_sync;
+            obj.testPower;
             
             fprintf('OK\n')
         end

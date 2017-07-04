@@ -22,11 +22,13 @@ classdef motor_wrapper < handle
         psir;
     end
     
-    methods (Abstract)
+    methods (Abstract, Access = protected)
 %         is = getIs(obj)  % returns the stator current (complex)
 %         psir = getPsir(obj)  % returns the rotor flux (complex)
 %         m = getTorque(obj)
-        run(obj)
+%         run(obj)
+        
+        calculate(obj)
         
 %         setOmRot(motor_wrapper, omRot)   % set the rotor speed
 %         setOmSupp(obj, omSupp)  % set the supply speed
@@ -126,6 +128,16 @@ classdef motor_wrapper < handle
             %properties(obj)
         end
         
+    end
+    
+    methods
+       function obj = run(obj)
+           if(obj.done)
+               return
+           end
+           obj.calculate();
+       end
+       
     end
     
 end

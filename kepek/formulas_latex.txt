@@ -241,3 +241,11 @@ eq_in_normal_op2
 \vec{U}_{r} = R_r \cdot \vec{i}_r + j\omega_s \vec{\psi}_r=0\\\\
 \vec{\psi}_s  = \vec{i}_s \cdot L^{*}_{ls} + \vec{i}^{*}_m \cdot L^{*}_m\\
 \vec{\psi}^{*}_r = \vec{i}^{*}_m \cdot L^{*}_m\\\\
+
+eq_in_normal_op3
+\tiny\\
+\vec{U}_{s} = R_s \cdot \vec{i}_s + j\omega_1 \vec{\psi}_s\\
+\vec{U}_{r}^{*} = R_r^{*} \cdot \vec{i}^{*}_r + j\omega_s \vec{\psi}_r^{*}=0\\\\
+\vec{\psi}_s  = \vec{i}_s \cdot L^{*}_{ls} + \vec{i}^{*}_m \cdot L^{*}_m\\
+\vec{\psi}^{*}_r = \vec{i}^{*}_m \cdot L^{*}_m\\\\
+
